@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GitHub Data Fetch Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Look up any GitHub user and view their profile stats and latest repositories." />
+  <title>GitHub Data Fetch</title>
+  <link rel="icon" type="image/png" href="assets/Logo.png" />
+  <link rel="apple-touch-icon" href="assets/Logo.png" />
+  <link rel="preconnect" href="https://api.github.com" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="input-card">
-    <input id="usernameInput" type="text" placeholder="Enter GitHub Username" />
-    <input id="fetchButton" type="submit" value="Get Data" />
+  <div class="page">
+    <header class="hero">
+      <img src="assets/Logo.png" alt="GitHub Data Fetch logo" class="hero__logo" />
+      <p class="hero__eyebrow">GitHub Lookup</p>
+      <h1 class="hero__title">Find any developer on GitHub</h1>
+      <p class="hero__subtitle">Search a username to view their profile, stats and latest repositories.</p>
+
+      <form id="searchForm" class="search" autocomplete="off">
+        <label for="usernameInput" class="sr-only">GitHub username</label>
+        <input
+          id="usernameInput"
+          name="username"
+          type="text"
+          class="search__input"
+          placeholder="e.g. octocat"
+          aria-describedby="searchStatus"
+        />
+        <button id="fetchButton" type="submit" class="search__button">
+          <span class="search__button-label">Search</span>
+        </button>
+      </form>
+
+      <p id="searchStatus" class="status" role="status" aria-live="polite"></p>
+    </header>
+
+    <main id="output" class="results"></main>
   </div>
-  <div id="output"></div>
+
   <script src="script.js"></script>
 </body>
+
 </html>
